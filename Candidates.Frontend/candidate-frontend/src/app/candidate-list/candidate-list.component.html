@@ -1,0 +1,26 @@
+<div class="container">
+    <h2>Listado de Candidatos</h2>
+    <button class="btn btn-success" [routerLink]="['/crear-candidato']">Crear Candidato</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo Electrónico</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let candidate of candidates">
+          <td>{{ candidate.name }}</td>
+          <td>{{ candidate.surname }}</td>
+          <td>{{ candidate.email }}</td>
+          <td>
+            <button class="btn btn-primary" [routerLink]="['/editar-candidato', candidate.idCandidate]">Editar</button>
+            <button class="btn btn-danger" (click)="showDeleteConfirmation(candidate)">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
